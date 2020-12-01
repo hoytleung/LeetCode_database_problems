@@ -1,9 +1,11 @@
 WITH JoinTable AS
-        (SELECT D.Name AS Department, E.Name As Employee, E.Salary AS Salary FROM Employee AS E, Department AS D
+        (SELECT D.Name AS Department, E.Name As Employee, E.Salary AS Salary 
+         FROM Employee AS E, Department AS D
          WHERE E.DepartmentId = D.Id), 
 
      HighestSalary AS
-        (SELECT Department, MAX(Salary) AS Salary FROM JoinTable
+        (SELECT Department, MAX(Salary) AS Salary 
+         FROM JoinTable
          GROUP BY Department),
          
      SecondHighestSalary AS
